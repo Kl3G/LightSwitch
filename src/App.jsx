@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {useState} from 'react';
+import Background from './Background';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [onOff, setSwitch] = useState(0);
+
+  function SwitchHendler () {
+
+    setSwitch( (prev) => (prev + 1) % 2 );
+  }
+
+  console.log(onOff);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Background color={onOff} 
+      onToggle={SwitchHendler} />
+      {/* "상태는 부모에서 관리하고, 자식 컴포넌트에는 props로 내려준다."
+      이걸 "상태 끌어올리기(Lifting State Up)" 라고 한다. */}
+      {/* 버튼을 Background.jsx로 옮기되, 상태는 App에서 계속 관리 */}
     </>
   )
 }
 
-export default App
+export default App;
