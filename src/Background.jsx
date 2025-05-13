@@ -1,3 +1,5 @@
+import on from './assets/on.png';
+import off from './assets/off.png';
 
 function Background ( {color, onToggle} ) {
 // props 객체를 구조 분해해서 한 번에 color와 onToggle을 꺼낸다.
@@ -12,7 +14,9 @@ function Background ( {color, onToggle} ) {
             backgroundColor: color === 0 ? "gray" : "#FF9F00", 
         }}> {/* style은 반드시 객체 형태로 적을 것. */}
             <h1>LightSwitch</h1>
-            <button onClick={onToggle}>on</button>
+            <button onClick={onToggle}>
+                <img src={color === 0 ? off : on} alt="" />
+            </button>
             {/* 버튼은 자식 컴포넌트에 있고,
             이벤트 핸들러는 부모로부터 props로 전달받는다. */}
         </div>
