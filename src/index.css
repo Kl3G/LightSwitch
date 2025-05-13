@@ -30,7 +30,7 @@ body {
   align-items: center; /*교차축 기준*/
   box-sizing: border-box;
   gap: 5rem;
-  padding: 20% 0 20% 0; 
+  padding: 10% 0 20% 0; 
   /*padding은 안쪽 여백이기 때문에 
   콘텐츠 영역 + padding만큼 요소의 크기 자체가 커진다는 것 주의하자!*/
 }
